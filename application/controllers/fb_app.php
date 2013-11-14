@@ -21,8 +21,11 @@ class fb_app extends CI_Controller {
     }
 
     public function test() {
-        $data = $this->get_pages();
-        var_dump($data['accounts']['data']);
+        
+        $footer_data['fb_id'] = $this->session->userdata('fb_id');
+        $this->load->view('region/header');
+        $this->load->view('test_pages');
+        $this->load->view('region/footer', $footer_data);
     }
     
     private function get_pages(){
@@ -137,13 +140,16 @@ class fb_app extends CI_Controller {
             redirect('fb_app/');
         }
         $data['fb_name'] = $this->session->userdata('fb_name');
+        $data['fb_id'] = $this->session->userdata('fb_id');
         $data['accounts'] = $this->get_pages();
         $data['link'] = 1;
+        
+        $footer_data['fb_id'] = $data['fb_id'];
         
         $this->load->view("region/header", $data);
         
         $this->load->view("home", $data);
-        $this->load->view("region/footer");
+        $this->load->view("region/footer", $footer_data);
     }
     
     public function page_home($page_id) {
@@ -174,8 +180,92 @@ class fb_app extends CI_Controller {
         
         $this->load->view("region/header", $data);
         
+        $data['side_nav_num'] = 1;
+        $this->load->view('region/side_navbar', $data);
         $this->load->view("page_home", $data);
-        $this->load->view("region/footer");
+        
+        $data_footer['fb_id'] = $page_id;
+        $this->load->view("region/footer", $data_footer);
+    }
+    
+    public function page_pictures($page_id){
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
+        
+        $accounts = $this->get_pages();
+        $judge = FALSE;
+        $page_info = null;
+        foreach($accounts['accounts']['data'] as $row){
+            if($row['id'] == $page_id){
+                $judge = TRUE;
+                $page_info = $row;
+                break;
+            }
+        }
+        
+        if($judge == FALSE){
+            redirect('fb_app/home/');
+        }
+        
+        $data['fb_name'] = $this->session->userdata('fb_name');
+        if(isset($accounts))
+            $data['accounts'] = $accounts;
+        $data['page_info'] = $page_info;
+        $data['link'] = 4;
+        
+        $this->load->view("region/header", $data);
+        
+        $data['side_nav_num'] = 2;
+        $this->load->view('region/side_navbar', $data);
+        $this->load->view("page_pictures", $data);
+        
+        $data_footer['fb_id'] = $page_id;
+        $this->load->view("region/footer", $data_footer);
+    }
+    
+    public function page_status($page_id){
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
+        
+        $accounts = $this->get_pages();
+        $judge = FALSE;
+        $page_info = null;
+        foreach($accounts['accounts']['data'] as $row){
+            if($row['id'] == $page_id){
+                $judge = TRUE;
+                $page_info = $row;
+                break;
+            }
+        }
+        
+        if($judge == FALSE){
+            redirect('fb_app/home/');
+        }
+        
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        
+        $data['fb_name'] = $this->session->userdata('fb_name');
+        if(isset($accounts))
+            $data['accounts'] = $accounts;
+        $data['page_info'] = $page_info;
+        $data['link'] = 4;
+        
+        $this->load->model('fb_model');
+        $data['status_list'] = $this->fb_model->get_status($this->session->userdata('fb_id'));
+        $footer_data['num_count'] = sizeof($data['status_list']);
+        
+        $this->load->view("region/header", $data);
+        
+        $data['side_nav_num'] = 3;
+        $this->load->view('region/side_navbar', $data);
+        $this->load->view("page_status", $data);
+        
+        
+        $data_footer['fb_id'] = $page_id;
+        $this->load->view("region/footer", $data_footer);
     }
 
     public function profile_pics() {

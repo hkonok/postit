@@ -1,20 +1,9 @@
 
-
-
-<!--=== End Breadcrumbs ===-->
-
-<!--=== Content Part ===-->
-<div class="container">		
-    <div class="row-fluid">
-        <!-- Unify Thumbnail -->
-       
-
-
-
-        
-       
-
-        <div class="headline"><h3>Scheduled Images</h3></div>
+    	<div class="span9">
+            
+            
+            <div class="row-fluid">
+               <div class="headline"><h3>Scheduled Images</h3></div>
         <ul class="thumbnails">
             <li class="span3">
                 <div class="thumbnail-style thumbnail-kenburn">
@@ -72,7 +61,8 @@
             </li>
 
         </ul><!--/thumbnails-->
-
+        
+        
         <ul class="thumbnails">
             <li class="span3">
                 <div class="thumbnail-style thumbnail-kenburn">
@@ -130,33 +120,11 @@
             </li>
 
         </ul><!--/thumbnails-->
+            </div>
 
-        
-         <div class="post-comment">
-                    <h3 class="color-green">Add Image</h3>
-                    <?php
-                    $attributes = array('class' => 'image-form');
-                    echo form_open('fb_app/add_image/', $attributes);
-                    ?>
-                   <div class="control-group">
-                    <input type="file" name="image_file" accept="image/*">
-                    <p>Allowable file extensions are jpg, png and gif.</p>
-                   </div>
-                    <div id="datetimepicker5" class="control-group">
-                        <input data-format="yyyy-MM-dd"  type="text" class="span3 add-on " placeholder="Date" name="image_date" ></input>
-                    </div>
-                    <div id="datetimepicker4" class="control-group">
-                        <input data-format="hh:mm:00"  type="text" class="span3 add-on" placeholder="Time" name="image_time" ></input>
-                    </div>
-                     <div id="uploading-image"></div>
-                    <p>All date and time are in UTC+6</p>
-                    <p><button type="submit" class="btn-u" id="add-image-button">Add Image +</button></p>
-        </form>
-
-                </div>
-        
-        
+        </div><!--/span9-->
     </div><!--/row-fluid-->        
+
+   
 </div><!--/container-->		
 <!--=== End Content Part ===-->
-

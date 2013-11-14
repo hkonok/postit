@@ -1,89 +1,62 @@
-
-
-<!--=== Breadcrumbs ===-->
-<div class="breadcrumbs margin-bottom-20">
-	<div class="container">
-        <h4 class="headline pull-left">Welcome <?php echo $fb_name; ?></h4>
-    </div><!--/container-->
-</div><!--/breadcrumbs-->
-<!--=== End Breadcrumbs ===-->
-
 <!--=== Content Part ===-->
 <div class="container">		
 	<div class="row-fluid blog-page">    
         <!-- Left Sidebar -->
     	<div class="span9">
-        	<div class="blog margin-bottom-30">
-            	<h3>Pellentesque habitant morbi tristique</h3>
-            	<ul class="unstyled inline blog-info">
-                	<li><i class="icon-calendar"></i> February 02, 2013</li>
-                	<li><i class="icon-pencil"></i> Diana Anderson</li>
-                	<li><i class="icon-comments"></i> <a href="#">24 Comments</a></li>
-                </ul>
-            	<ul class="unstyled inline blog-tags">
-                    <li>
-                        <i class="icon-tags"></i> 
-                        <a href="#">Technology</a> 
-                        <a href="#">Education</a>
-                        <a href="#">Internet</a>
-                        <a href="#">Media</a>
-                    </li>
-                </ul>
-                <div class="blog-img"><img src="<?php echo base_url();?>assets/img/posts/1.jpg" alt="" /></div>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                <p><a class="btn-u btn-u-small" href="blog_item.html">Read More</a></p>
-            </div><!--/blog-->
+        	<div class="row-fluid">
+                <div class="blog margin-bottom-30">
+                    <!--
+                    <h3>Pellentesque habitant morbi tristique</h3>
+                    -->
+                    <div class="headline"><h3>Our Services</h3></div>
+                   <div  class="blog-img bxslider recent-work">
+                            <a >
+                        <em class="overflow-hidden"><div id="cover_photo"></div></em>
+                            </a>
+                       
+                   </div>
 
-        	<div class="blog margin-bottom-30">
-            	<h3>Consectetur adipiscing elit similique</h3>
-            	<ul class="unstyled inline blog-info">
-                	<li><i class="icon-calendar"></i> January 30, 2013</li>
-                	<li><i class="icon-pencil"></i> Ann Bour</li>
-                	<li><i class="icon-comments"></i> <a href="#">12 Comments</a></li>
-                </ul>
-            	<ul class="unstyled inline blog-tags">
-                    <li>
-                        <i class="icon-tags"></i> 
-                        <a href="#">Technology</a> 
-                        <a href="#">Education</a>
-                        <a href="#">Internet</a>
-                        <a href="#">Media</a>
-                    </li>
-                </ul>
-                <div class="blog-img"><img src="<?php echo base_url();?>assets/img/posts/2.jpg" alt="" /></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>
-                <p><a class="btn-u btn-u-small" href="blog_item.html">Read More</a></p>
-            </div><!--/blog-->
-
-        	<div class="blog margin-bottom-30">
-            	<h3>Blanditiis praesentium voluptatum deleniti</h3>
-            	<ul class="unstyled inline blog-info">
-                	<li><i class="icon-calendar"></i> January 15, 2013</li>
-                	<li><i class="icon-pencil"></i> Kate Dommy</li>
-                	<li><i class="icon-comments"></i> <a href="#">64 Comments</a></li>
-                </ul>
-            	<ul class="unstyled inline blog-tags">
-                    <li>
-                        <i class="icon-tags"></i> 
-                        <a href="#">Technology</a> 
-                        <a href="#">Education</a>
-                        <a href="#">Internet</a>
-                        <a href="#">Music</a>
-                        <a href="#">Films</a>
-                        <a href="#">Business</a>
-                    </li>
-                </ul>
-                <div class="blog-img"><img src="<?php echo base_url();?>assets/img/posts/3.jpg" alt="" /></div>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias  expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-                <p><a class="btn-u btn-u-small" href="blog_item.html">Read More</a></p>
-            </div><!--/blog-->
-            
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                    <!--<p><a class="btn-u btn-u-small" href="blog_item.html">Read More</a></p>-->
+                </div><!--/blog-->
+                <div class="row-fluid servive-block servive-block-in">
+                        <div class="span4">
+                            <h4><a href="#">Lorem sequat ipsum de</a></h4>
+                            <p><i class="icon-bell"></i></p>
+                            <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine.</p>
+                        </div>
+                        <div class="span4">
+                            <h4><a href="#">Vivamus imperdiet gravi</a></h4>
+                            <p><i class="icon-bullhorn"></i></p>
+                            <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine.</p>
+                        </div>
+                        <div class="span4">
+                            <h4><a href="#">Donec idslacs elit nomi</a></h4>
+                            <p><i class=" icon-lightbulb"></i></p>
+                            <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine.</p>
+                        </div>
+                </div>
+            </div>
           
         </div><!--/span9-->
 
         <!-- Right Sidebar -->
     	<div class="span3">
-        	<!-- Search Bar -->
+            
+                <!-- Posts -->
+            <div class="posts margin-bottom-20">
+                <div class="headline"><h5>Welcome to FbAutoPoster</h5></div>
+                <dl class="dl-horizontal">
+                    <dt><a href="#"><img src="http://graph.facebook.com/<?php echo $fb_id; ?>/picture/" alt="" /></a></dt>
+                    <dd>
+                        <p> &nbsp;</p>
+                        <p><a href="#"><?php echo $fb_name; ?></a></p> 
+                    </dd>
+                </dl>
+            </div><!--/posts-->
+            <hr/>
+            
+        	<!-- facebook like box -->
                 <div class="posts margin-bottom-20">
                     <div class="fb-like-box" data-href="https://www.facebook.com/pages/12monkeys/263767153751286" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
                 </div>
