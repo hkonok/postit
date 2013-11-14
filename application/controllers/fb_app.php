@@ -304,8 +304,8 @@ class fb_app extends CI_Controller {
         
         $this->load->model('fb_model');
         
-        
-        
+        $data['fb_name'] = $this->session->userdata('fb_name');
+        $data['fb_id'] = $this->session->userdata('fb_id');
         if ($this->form_validation->run() == FALSE){
             $this->load->view("region/header", $data);
             

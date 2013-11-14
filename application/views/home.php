@@ -10,8 +10,8 @@
                     -->
                     <div class="headline"><h3>Our Services</h3></div>
                    <div  class="blog-img bxslider recent-work">
-                            <a >
-                        <em class="overflow-hidden"><div id="cover_photo"></div></em>
+                            <a style="width:100%;">
+                       <div id="cover_photo" style="width: 100%;" ></div>
                             </a>
                        
                    </div>
@@ -44,6 +44,7 @@
     	<div class="span3">
             
                 <!-- Posts -->
+             
             <div class="posts margin-bottom-20">
                 <div class="headline"><h5>Welcome to FbAutoPoster</h5></div>
                 <dl class="dl-horizontal">
@@ -63,24 +64,24 @@
 
             <!-- Posts -->
             <div class="posts margin-bottom-20">
-                <div class="headline"><h3>Your Pages</h3></div>
-                <?php 
-                        if(isset($accounts['accounts']['data'])):
-                            foreach ($accounts['accounts']['data'] as $row):
+                <!-- Photo Stream -->
+            <div class="headline"><h3>Manage Pages</h3></div>
+            <ul class="unstyled blog-ads">
+                <?php
+                if (isset($accounts['accounts']['data'])):
+                    foreach ($accounts['accounts']['data'] as $row):
                 ?>
-                
-                <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="https://graph.facebook.com/<?php echo $row['id']; ?>/picture" alt="" /></a></dt>
-                    <dd>
-                        <p><a href="#"><?php echo $row['name']; ?></a></p> 
-                    </dd>
-                </dl>
-                
-                <?php 
-                        endforeach;
-                    endif;
+                        <li><a href="<?php echo base_url(); ?>index.php/fb_app/page_home/<?php echo $row['id']; ?>/"><img src="https://graph.facebook.com/<?php echo $row['id']; ?>/picture" alt="" class="hover-effect" /></a></li>
+                <?php
+                    endforeach;
                 ?>
-                <div></div>
+                <?php else: ?>
+                    <li><a href="#">No Page Found</a></li>
+                <?php
+                endif;
+                ?>
+            </ul>
+            <hr/>
                 
             </div><!--/posts-->
 

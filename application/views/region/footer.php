@@ -251,8 +251,8 @@ endif;
     $.fn.fbGetcover = function(FBuid, containerWidth, containerHeight, callback)
     {
         var $this = this;
-        if(typeof(containerWidth) == 'undefined') containerWidth = 850;
-        if(typeof(containerHeight) == 'undefined') containerHeight = 314;
+        //if(typeof(containerWidth) == 'undefined') containerWidth = '100%';
+       // if(typeof(containerHeight) == 'undefined') containerHeight = 314;
         if(typeof(callback) == 'undefined') callback = function(status){};
         $this.find('img').remove();
         $.ajax(
@@ -294,6 +294,21 @@ endif;
 $(document).ready(function(e)
 {
     $('#cover_photo').fbGetcover(<?php echo $fb_id; ?>);    
+});
+
+
+$(document).ready(function(){
+    var cw = $('#cover_photo').width();
+    $('#cover_photo').css({
+        'height': cw*0.37015 + 'px'
+    });
+});
+
+jQuery(window).resize(function() {
+    var cw = $('#cover_photo').width();
+    $('#cover_photo').css({
+        'height': cw*0.37015 + 'px'
+    });
 });
 
 </script>

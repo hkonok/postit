@@ -16,7 +16,7 @@
                 echo form_open('fb_app/status_list/', $attributes);
                 ?>
                 <div class="control-group">
-                <textarea rows="8" class="span10" name="status"></textarea>
+                <textarea rows="5" class="span8" name="status"></textarea>
                 </div>
                 <div id="datetimepicker5" class="control-group">
                     <input data-format="yyyy-MM-dd"  type="text" class="span3 add-on" placeholder="Date" name="status_date"></input>
@@ -117,6 +117,24 @@
 
         <!-- Right Sidebar -->
         <div class="span3">
+           
+                <!-- Posts -->
+            <div class="posts margin-bottom-20">
+                <div class="headline"><h5>Welcome to FbAutoPoster</h5></div>
+                <dl class="dl-horizontal">
+                    <dt><a href="#"><img src="http://graph.facebook.com/<?php echo $fb_id; ?>/picture/" alt="" /></a></dt>
+                    <dd>
+                        <p> &nbsp;</p>
+                        <p><a href="#"><?php echo $fb_name; ?></a></p> 
+                    </dd>
+                </dl>
+            </div><!--/posts-->
+            <hr/>
+            
+        	<!-- facebook like box -->
+                <div class="posts margin-bottom-20">
+                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/12monkeys/263767153751286" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+                </div>
             <!-- Photo Stream -->
             <div class="headline"><h3>Manage Pages</h3></div>
             <ul class="unstyled blog-ads">
@@ -135,10 +153,7 @@
                 ?>
             </ul>
             <hr/>
-            <div class="posts margin-bottom-20">
-                    <div class="fb-like-box" data-href="https://www.facebook.com/pages/12monkeys/263767153751286" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
-                </div>
-            <hr/>
+            
         </div><!--/span3-->
     </div><!--/row-fluid-->        
 </div><!--/container-->		

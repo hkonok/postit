@@ -9,8 +9,8 @@
                     -->
                     <div class="headline"><h3>Manage Page</h3></div>
                    <div  class="blog-img bxslider recent-work">
-                            <a >
-                        <em class="overflow-hidden"><div id="cover_photo"></div></em>
+                            <a style="width:100%;">
+                       <div id="cover_photo" style="width: 100%;" ></div>
                             </a>
                        
                    </div>
