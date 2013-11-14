@@ -167,7 +167,8 @@ class fb_app extends CI_Controller {
         }
         
         $data['fb_name'] = $this->session->userdata('fb_name');
-        $data['accounts'] = $this->get_pages();
+        if(isset($accounts))
+            $data['accounts'] = $accounts;
         $data['page_info'] = $page_info;
         $data['link'] = 4;
         
@@ -178,14 +179,29 @@ class fb_app extends CI_Controller {
     }
 
     public function profile_pics() {
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
+        
         $data['link'] = 2;
+        
+        $data['accounts'] = $this->get_pages();
+        
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        
         $this->load->view("region/header", $data);
         $this->load->view("profile_pics");
         $this->load->view("region/footer");
     }
 
-    public function status_list() {
+    public function status_list($success = "failed") {
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
+        
         $data['link'] = 3;
+        $data['accounts'] = $this->get_pages();
         
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -196,21 +212,70 @@ class fb_app extends CI_Controller {
         $this->form_validation->set_rules('status_date', 'Date', 'required');
         $this->form_validation->set_rules('status_time', 'Time', 'required');
         
+        $this->load->model('fb_model');
+        
+        
+        
         if ($this->form_validation->run() == FALSE){
             $this->load->view("region/header", $data);
-            $this->load->view("status_list");
-            $this->load->view("region/footer");
+            
+            if($success == "success"){
+                $data['success'] = TRUE;
+            }
+            $data['status_list'] = $this->fb_model->get_status($this->session->userdata('fb_id'));
+            $footer_data['num_count'] = sizeof($data['status_list']);
+            
+            $this->load->view("status_list", $data);
+            $this->load->view("region/footer", $footer_data);
         }
         else{
-            $data['success'] = TRUE;
-            $this->load->view("region/header", $data);
-            $this->load->view("status_list", $data);
-            $this->load->view("region/footer");
+            
+            
+            $fb_id = $this->session->userdata('fb_id');
+            $status = $this->input->post('status', TRUE);
+            $date = $this->input->post('status_date', TRUE);
+            $time = $this->input->post('status_time', TRUE);
+            $this->fb_model->insert_status($fb_id, $status, $date, $time);
+            
+            redirect('fb_app/status_list/success/');
         }
     }
     
-    public function add_status(){
+    public function remove_status($status_id){
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
         
+        $this->load->model('fb_model');
+        $this->fb_model->remove_status($this->session->userdata('fb_id'), $status_id);
+        redirect('fb_app/status_list/');
+    }
+    
+    public function update_status($status_id){
+        if($this->session->userdata('fb_id') == FALSE){
+            redirect('fb_app/');
+        }
+        
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_error_delimiters('<div class="alert alert-error">', '</div>');
+        
+        $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('status_date', 'Date', 'required');
+        $this->form_validation->set_rules('status_time', 'Time', 'required');
+        
+        if ($this->form_validation->run() == TRUE){
+            $this->load->model('fb_model');
+            $status = $this->input->post('status', TRUE);
+            $status_date = $this->input->post('status_date', TRUE);
+            $status_time = $this->input->post('status_time', TRUE);
+            $fb_id = $this->session->userdata('fb_id');
+            
+            $this->fb_model->update_status($fb_id, $status_id, $status, $status_date, $status_time);
+        }
+        
+        redirect('fb_app/status_list/');
     }
 
 }

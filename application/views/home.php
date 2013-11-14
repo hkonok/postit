@@ -107,12 +107,14 @@
                         endforeach;
                     endif;
                 ?>
+                <div></div>
                 
             </div><!--/posts-->
 
         	
 
         	<!-- Photo Stream -->
+           <div class="posts margin-bottom-20">
         	<div class="headline"><h3>Your Photos</h3></div>
             <ul class="unstyled blog-ads">
             	<li><a href="#"><img src="<?php echo base_url();?>assets/img/sliders/elastislide/5.jpg" alt="" class="hover-effect" /></a></li>
@@ -124,6 +126,8 @@
             	<li><a href="#"><img src="<?php echo base_url();?>assets/img/sliders/elastislide/2.jpg" alt="" class="hover-effect" /></a></li>
             	<li><a href="#"><img src="<?php echo base_url();?>assets/img/sliders/elastislide/7.jpg" alt="" class="hover-effect" /></a></li>
             </ul>
+                
+             </div>
 
         	
 

@@ -40,6 +40,39 @@ class fb_model extends CI_Model{
                          ->row_array();
         return $data;
     }
+    
+    public function insert_status($fb_id, $status, $date, $time){
+        $data = array('fb_id' => $fb_id,
+                      'status' => $status,
+                      'date_time' => $date." ".$time
+                    );
+        $this->db->insert('status', $data);
+        return $this->db->insert_id();
+    }
+    
+    public function get_status($fb_id){
+        $data = $this->db->where('fb_id', $fb_id)
+                         ->get('status')
+                         ->result_array();
+        
+        return $data;
+    }
+    
+    public function remove_status($fb_id, $status_id){
+        $this->db->where('id', $status_id)
+                 ->where('fb_id', $fb_id)
+                 ->delete('status');
+    }
+    
+    public function update_status($fb_id, $status_id, $status, $status_date, $status_time){
+        $data = array(
+                        'status' => $status,
+                        'date_time' => $status_date." ".$status_time
+                    );
+        $this->db->where('id', $status_id)
+                 ->where('fb_id', $fb_id)
+                 ->update('status', $data);
+    }
 }
 
 
