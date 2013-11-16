@@ -280,8 +280,12 @@ class fb_app extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         
+        $data['accounts'] = $this->get_pages();
+        $data['fb_name'] = $this->session->userdata('fb_name');
+        $data['fb_id'] = $this->session->userdata('fb_id');
+        
         $this->load->view("region/header", $data);
-        $this->load->view("profile_pics");
+        $this->load->view("profile_pics", $data);
         $this->load->view("region/footer");
     }
 

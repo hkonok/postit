@@ -166,6 +166,7 @@ endif;
     <script src="<?php echo base_url(); ?>assets/js/respond.js"></script>
 <![endif]-->
 
+
 <!-- form validation -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/validate/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/validate/dist/additional-methods.min.js"></script>
@@ -234,7 +235,7 @@ endif;
         
         $('#add-image-button').click(function(){
             if(Validator.form() == true){
-                $('#uploading-image').append("<div class='progress progress-striped active' style='width: 50%;'><div class='bar' style='width: 100%;'></div></div>");
+                $('#uploading-image').append("<div class='progress progress-striped active' style='width: 90%;'><div class='bar' style='width: 100%;'></div></div>");
             }
         });
     
@@ -251,9 +252,13 @@ endif;
     $.fn.fbGetcover = function(FBuid, containerWidth, containerHeight, callback)
     {
         var $this = this;
-        //if(typeof(containerWidth) == 'undefined') containerWidth = '100%';
-       // if(typeof(containerHeight) == 'undefined') containerHeight = 314;
+       
+     //   if(typeof(containerWidth) == 'undefined') containerWidth = 851;
+     //  if(typeof(containerHeight) == 'undefined') containerHeight = 314;
+        containerWidth = $('#cover_photo').width();
+        containerHeight =containerWidth*0.37015 ;
         if(typeof(callback) == 'undefined') callback = function(status){};
+        
         $this.find('img').remove();
         $.ajax(
         {
@@ -267,13 +272,14 @@ endif;
             {
                 if(typeof(data.cover) != 'undefined')
                 {
+                     $this.empty();
                     $this.append
                     (
                         $('<img  />').css({'width':'inherit'})
                         .hide()
                         .load(function(e)
                         {
-                            $this.css({'width':containerWidth, 'height':containerHeight, 'display':'inline-block', 'position':'relative', 'overflow':'hidden'});
+                            $this.css({'display':'inline-block', 'position':'relative', 'overflow':'hidden'});
                             $(e.currentTarget).css(
                             {
                                 'margin-top':(($(e.currentTarget).height()-containerHeight)*(data.cover.offset_y*0.01))*-1
@@ -297,6 +303,8 @@ $(document).ready(function(e)
 });
 
 
+
+
 $(document).ready(function(){
     var cw = $('#cover_photo').width();
     $('#cover_photo').css({
@@ -309,9 +317,13 @@ jQuery(window).resize(function() {
     $('#cover_photo').css({
         'height': cw*0.37015 + 'px'
     });
+   /*
+    $('#cover_photo').fbGetcover(<?php echo $fb_id; ?>);
+    */
 });
 
 </script>
+
 <!-- /facebook cover -->
 
 <script type="text/javascript">

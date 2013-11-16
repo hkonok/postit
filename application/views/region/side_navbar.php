@@ -27,7 +27,7 @@
                 <a href="<?php echo base_url(); ?>index.php/fb_app/page_home/<?php echo $page_info['id']; ?>/">
                 <i class="icon-chevron-right"></i> Our Services</a>
             </li>
-          <li<?php if( isset($side_nav_num) && $side_nav_num == 2) echo "class='active'"; ?>>
+          <li <?php if( isset($side_nav_num) && $side_nav_num == 2) echo "class='active'"; ?>>
               <a href="<?php echo base_url(); ?>index.php/fb_app/page_pictures/<?php echo $page_info['id']; ?>/">
                   <i class="icon-chevron-right"></i> Page Pictures</a>
           </li>
